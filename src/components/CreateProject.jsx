@@ -1,7 +1,7 @@
 import React from "react";
 import { FormWrapper } from "./FormWrapper";
 import { Form, Input, DatePicker, Select, Button } from "antd";
-import { FaPlus } from "react-icons/fa6";
+import { FaPlus } from "react-icons/fa";
 
 const CreateProject = ({
   projectName,
@@ -13,11 +13,9 @@ const CreateProject = ({
 }) => {
 
   const handleInputChange = (fieldName, value) => {
-  
     updateFields({ [fieldName]: value });
   };
 
-  
   return (
     <FormWrapper title={"Create a project"}>
       <div>
@@ -38,7 +36,9 @@ const CreateProject = ({
             </label>
             <Input
               value={projectName}
-              onChange={(e) => handleInputChange("projectName", e.target.value)}
+              onChange={(e) =>
+                handleInputChange("projectName", e.target.value)
+              }
             />
           </Form.Item>
         </div>
@@ -58,15 +58,14 @@ const CreateProject = ({
                 onChange={(value) => handleInputChange("client", value)}
                 style={{ flex: 1, marginRight: "8px" }}
               >
-                <Option value="client1">Client 1</Option>
-                <Option value="client2">Client 2</Option>
+                <Select.Option value="client1">Client 1</Select.Option>
+                <Select.Option value="client2">Client 2</Select.Option>
               </Select>
               <span className="text-sm text-gray p-1">or</span>
               <Button
                 className="flex items-center p-2"
                 style={{ marginLeft: "8px" }}
               >
-                {" "}
                 <FaPlus />
                 <span className="p-1">Add Client</span>
               </Button>

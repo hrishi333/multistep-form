@@ -1,9 +1,10 @@
 import React from "react";
 import {Card,Flex} from 'antd';
 
-const UsersCard = ({ logo, title, description }) => {
+const UsersCard = ({ currentActive,logo, title, description }) => {
+
   return (
-    <Card hoverable className="w-full mb-2 border border-gray" style={{ padding: "0" }}>
+    <Card hoverable className={`w-full mb-2 border ${currentActive ? "border-primary":"border-[#e6e6e6]"}`} style={{ padding: "0" }}>
       <Flex gap="8px" className="">
         {/* Logo */}
         <div className="flex items-center">

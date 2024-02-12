@@ -46,7 +46,7 @@ function App() {
           footer={modalFooter}
         >
           
-          <Form/>
+          <Form handleCancel={handleCancel} />
           
         </Modal>
       </div>

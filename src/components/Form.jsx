@@ -19,9 +19,11 @@ const INITIAL_DATA = {
   budgetCategory: "",
   resetEveryMonth: false,
   sendEmailAlerts: false,
+  selectView: '',
+  manageProjects: ''
 };
 
-const Form = () => {
+const Form = ({handleCancel}) => {
   const [data, setData] = useState(INITIAL_DATA);
 
   function updateFields(fields) {
@@ -37,6 +39,8 @@ const Form = () => {
       <SelectView {...data} updateFields={updateFields} />,
       <ManageProject {...data} updateFields={updateFields} />,
     ]);
+
+ 
 
   const renderDots = () => {
     const dots = [];
@@ -56,7 +60,12 @@ const Form = () => {
   function handleSubmit(e) {
     e.preventDefault();
     next();
+    if(isLastStep){
+      handleCancel()
     localStorage.setItem("formData", JSON.stringify(data));
+    localStorage.setItem("formData", JSON.stringify(data));
+console.log({data})
+    }
   }
 
   return (
