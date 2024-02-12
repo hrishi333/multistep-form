@@ -17,6 +17,8 @@ function App() {
   const handleCancel = () => {
     setIsModalVisible(false);
   };
+  const modalFooter = null;
+
 
   useEffect(()=>{
     showModal();
@@ -41,6 +43,7 @@ function App() {
           onOk={handleOk}
           onCancel={handleCancel}
           okButtonProps={{ className: "custom-ok-button" }}
+          footer={modalFooter}
         >
           
           <Form/>
